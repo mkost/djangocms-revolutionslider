@@ -18,9 +18,10 @@ EASE_CHOICES = (
     ('OutBounce', 'easeOutBounce'), ('InOutBounce', 'easeInOutBounce')
 )
 
+
 class Slide(CMSPlugin):
     image = models.ImageField(upload_to="revolution-slider/%Y/%m/%d", blank=True, null=True)
-    text = models.CharField(max_length=2500, blank=True, null=True)
+    slide_text = models.CharField(max_length=2500, blank=True, null=True)
     start = models.IntegerField(default=1000, blank=True, null=True)
     end = models.IntegerField(default=5000, blank=False, null=True)
     speed = models.IntegerField(default=100, blank=False, null=True)
@@ -28,7 +29,6 @@ class Slide(CMSPlugin):
     position_y = models.IntegerField(default=180, blank=False, null=True)
     easing = models.CharField(max_length=25, choices=EASE_CHOICES, default=EASE_CHOICES[0])
     slider = models.ForeignKey('Slider', blank=True, null=True, related_name='slide')
-
 
     def __unicode__(self):
         return "%s" % (self.id)
@@ -38,7 +38,6 @@ class Slider(CMSPlugin):
     master_start = models.IntegerField(default=1000, blank=True)
     master_end = models.IntegerField(default=5000, blank=False, null=True)
     master_speed = models.IntegerField(default=300, blank=False, null=True)
-
 
     def copy_relations(self, oldinstance):
         for slide in oldinstance.slide.all():

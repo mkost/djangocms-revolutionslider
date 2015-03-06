@@ -12,7 +12,7 @@ class Migration(SchemaMigration):
         db.create_table(u'revolutionslider_slide', (
             (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
             ('image', self.gf('django.db.models.fields.files.ImageField')(max_length=100, null=True, blank=True)),
-            ('text', self.gf('django.db.models.fields.CharField')(max_length=2500, null=True, blank=True)),
+            ('slide_text', self.gf('django.db.models.fields.CharField')(max_length=2500, null=True, blank=True)),
             ('start', self.gf('django.db.models.fields.IntegerField')(default=1000, null=True, blank=True)),
             ('end', self.gf('django.db.models.fields.IntegerField')(default=5000, null=True)),
             ('speed', self.gf('django.db.models.fields.IntegerField')(default=100, null=True)),
@@ -71,10 +71,10 @@ class Migration(SchemaMigration):
             'image': ('django.db.models.fields.files.ImageField', [], {'max_length': '100', 'null': 'True', 'blank': 'True'}),
             'position_x': ('django.db.models.fields.IntegerField', [], {'default': '477', 'null': 'True'}),
             'position_y': ('django.db.models.fields.IntegerField', [], {'default': '180', 'null': 'True'}),
+            'slide_text': ('django.db.models.fields.CharField', [], {'max_length': '2500', 'null': 'True', 'blank': 'True'}),
             'slider': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'slide'", 'null': 'True', 'to': u"orm['revolutionslider.Slider']"}),
             'speed': ('django.db.models.fields.IntegerField', [], {'default': '100', 'null': 'True'}),
-            'start': ('django.db.models.fields.IntegerField', [], {'default': '1000', 'null': 'True', 'blank': 'True'}),
-            'text': ('django.db.models.fields.CharField', [], {'max_length': '2500', 'null': 'True', 'blank': 'True'})
+            'start': ('django.db.models.fields.IntegerField', [], {'default': '1000', 'null': 'True', 'blank': 'True'})
         },
         u'revolutionslider.slider': {
             'Meta': {'object_name': 'Slider', '_ormbases': ['cms.CMSPlugin']},

@@ -16,7 +16,7 @@ class Migration(migrations.Migration):
             fields=[
                 ('cmsplugin_ptr', models.OneToOneField(parent_link=True, auto_created=True, primary_key=True, serialize=False, to='cms.CMSPlugin')),
                 ('image', models.ImageField(null=True, upload_to=b'', blank=True)),
-                ('text', models.CharField(max_length=2500, null=True, blank=True)),
+                ('slide_text', models.CharField(max_length=2500, null=True, blank=True)),
                 ('start', models.IntegerField(default=1000, null=True, blank=True)),
                 ('end', models.IntegerField(default=5000, null=True)),
                 ('speed', models.IntegerField(default=100, null=True)),
