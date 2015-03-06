@@ -19,7 +19,7 @@ EASE_CHOICES = (
 )
 
 class Slide(CMSPlugin):
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(upload_to=None, blank=True, null=True)
     text = models.CharField(max_length=2500, blank=True, null=True)
     start = models.IntegerField(default=1000, blank=True, null=True)
     end = models.IntegerField(default=5000, blank=False, null=True)
