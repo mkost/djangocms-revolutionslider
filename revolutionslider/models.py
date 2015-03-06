@@ -41,7 +41,7 @@ class Slider(CMSPlugin):
     master_speed = models.IntegerField(default=300, blank=False, null=True)
 
     def copy_relations(self, old_instance):
-        for slide in old_instance.slide_set.all():
+        for slide in old_instance.slide.all():
             slide.pk = None
             slide.plugin = self
             slide.save()
