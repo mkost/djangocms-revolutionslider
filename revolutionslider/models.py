@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.translation import ugettext_lazy as _
 from cms.models import CMSPlugin
 
 
@@ -39,11 +40,11 @@ class Slider(CMSPlugin):
     master_end = models.IntegerField(default=5000, blank=False, null=True)
     master_speed = models.IntegerField(default=300, blank=False, null=True)
 
-    def copy_relations(self, oldinstance):
-        for slide in oldinstance.slide.all():
+    def copy_relations(self, old_instance):
+        for slide in old_instance.slide_set.all():
             slide.pk = None
             slide.plugin = self
             slide.save()
 
     def __unicode__(self):
-        return "%s" % (self.id)
+        return _(u"Revolution Slider")
