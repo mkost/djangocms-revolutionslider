@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name = "djangocms-revolutionslider",
-    version = "0.5.1",
+    version = "0.5.2",
     author = "Royendgel Silberie",
     author_email = "royendgel@techprocur.com",
     description = "Quick and easy Implementation of revolution slider",
